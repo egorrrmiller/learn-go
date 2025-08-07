@@ -17,9 +17,9 @@ func NewTodoService(repo *repository.TodoRepository) *TodoService {
 
 func (s *TodoService) Create(todoItem models.TodoItem) {
 	//todoItem.Id = uuid.New()
-	s.repo.Create(&todoItem)
+	s.repo.Create(todoItem)
 }
 
-func (s *TodoService) Get(id uuid.UUID) *models.TodoItem {
+func (s *TodoService) Get(id uuid.UUID) models.TodoItem {
 	return s.repo.Get(id)
 }

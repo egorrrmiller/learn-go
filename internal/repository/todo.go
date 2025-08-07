@@ -22,14 +22,14 @@ func NewTodoRepository(db *gorm.DB) *TodoRepository {
 	return &TodoRepository{db: db}
 }
 
-func (r *TodoRepository) Create(todo *models.TodoItem) {
+func (r *TodoRepository) Create(todo models.TodoItem) {
 	r.db.Create(&todo)
 }
 
-func (r *TodoRepository) Get(id uuid.UUID) *models.TodoItem {
+func (r *TodoRepository) Get(id uuid.UUID) models.TodoItem {
 	todo := models.TodoItem{Id: id}
 
 	r.db.First(&todo)
 
-	return &todo
+	return todo
 }
